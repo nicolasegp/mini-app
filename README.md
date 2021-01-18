@@ -60,7 +60,7 @@ dentro del contexto de ruta se debe usar el primer parámetro el cual está rese
 
 ## • Secciones
 
-Para crear una sección debemos usar la función `route()`, solo posee 2 parámetros. El primero es la ruta que puede contener expresiones regulares o no. El segundo es una función donde sus parámetros son dinámicos y se definen según lo solicitado en la ruta, exceptuando el primer parámetro que es reservado para la variable `$app` la cual nos ayuda a ingresar contenido de la class a nuestro encapsulamiento.
+Para crear una sección debemos usar la función `route()`, solo posee 2 parámetros. El primero es la ruta que puede contener expresiones regulares o no, en caso de ser el inicio dejar la ruta vacia (solo las comillas). El segundo es una función donde sus parámetros son dinámicos y se definen según lo solicitado en la ruta, exceptuando el primer parámetro que es reservado para la variable `$app` la cual nos ayuda a ingresar contenido de la class a nuestro encapsulamiento.
 
 ```php
 ->route('seccion', function($app) {
