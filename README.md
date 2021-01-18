@@ -1,12 +1,12 @@
 # Mini-App
 
-- [ModRewrite](#modrewrite)
-- [Error 404](#error-404)
-- [Base de datos](#base-de-datos)
+- [ModRewrite](#-modrewrite)
+- [Error 404](#-error-404)
+- [Base de datos](#-base-de-datos)
   * [MySQLi](#mysqli)
   * [SQLite](#sqlite)
   * [Uso de la base de datos](#uso-de-la-base-de-datos)
-- [Secciones](#secciones)
+- [Secciones](#-secciones)
   * [Variables en las secciones](#variables-en-las-secciones)
 
 Es una renovación de la idea de [**Mini-Api**](https://github.com/nicolasegp/mini-api) para crear proyectos pequeños en PHP de forma fácil y con poco código.
