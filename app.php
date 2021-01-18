@@ -5,6 +5,10 @@ class App {
 	protected $app  = [];
 	protected $func = [];
 
+	public function __construct() {
+		$this->app = (object)[];
+	}
+
 	public function config() {
 		$args = func_get_args();
 		$name = strtolower(array_shift($args));
@@ -25,10 +29,10 @@ class App {
 			: $this->cfg['mod_rewrite'] = false;
 		
 		// Url
-		$this->app['url'] = array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER)
+		$this->app->url = array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER)
 			? $_SERVER['HTTP_X_FORWARDED_PROTO'] // CloudFlare || Proxy
 			: $_SERVER['REQUEST_SCHEME'];
-		$this->app['url'].= '://'.preg_replace(
+		$this->app->url.= '://'.preg_replace(
 			'/\/{2,}/',
 			'/',
 			$_SERVER['SERVER_NAME'].str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'])).'/'
@@ -36,24 +40,24 @@ class App {
 
 		// DataBase MySQLi
 		if(array_key_exists('mysqli', $this->cfg)) {
-			$this->app['db'] = new mysqli(
+			$this->app->db = new mysqli(
 				$this->cfg['mysqli'][0],
 				$this->cfg['mysqli'][1],
 				$this->cfg['mysqli'][2],
 				$this->cfg['mysqli'][3]
 			);
-			if($this->app['db']->connect_errno) {
-				die('<b>Error MySQLi:</b> '.$this->app['db']->connect_error);
+			if($this->app->db->connect_errno) {
+				die('<b>Error MySQLi:</b> '.$this->app->db->connect_error);
 			}
-			if( ! $this->app['db']->set_charset('utf8')) {
-				die('<b>Error MySQLi:</b> '.$this->app['db']->error);
+			if( ! $this->app->db->set_charset('utf8')) {
+				die('<b>Error MySQLi:</b> '.$this->app->db->error);
 			}
 		}
 
 		// DataBase SQLite
 		if(array_key_exists('sqlite', $this->cfg)) {
-			$this->app['db'] = new SQLite3($this->cfg['sqlite'][0]);
-			$this->app['db']->busyTimeout(500);
+			$this->app->db = new SQLite3($this->cfg['sqlite'][0]);
+			$this->app->db->busyTimeout(500);
 		}
 	}
 
