@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mini-App</title>
+</head>
+<body>
+	<main id="app">
+		<h1>Prueba de MiniApp 🤔</h1>
+
+		<h2>Var URL:</h2>
+		<code>$app->url = <?php echo $app->url ?></code>
+
+		<h2>Hora: <small><code>(sleep 1seg | <a href="api/hora">api/hora</a>)</code></small></h2>
+		<code>{{ hora }}</code>
+
+		<h2>Suma: <small><code>(sleep 2seg | <a href="api/suma/150-25">api/suma/150-25</a>)</code></small></h2>
+		<code>{{ suma }}</code>
+
+		<h2><a href="secc/db">Prueba de base de datos</a> <small>(Si esta habilitado)</small></h2>
+		<h2><a href="secc/error">Ir a un 404</a></h2>
+	</main>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.21.1"></script>
+	<script>
+		new Vue({
+			el: '#app',
+			data() {
+				return {
+					hora: '',
+					suma: ''
+				}
+			},
+			mounted() {
+				this.getHora();
+				this.getSuma();
+			},
+			methods: {
+				getHora: function() {
+					this.hora = '😫 Cargando...';
+					axios
+						.get('api/hora')
+						.then(res => this.hora = '😁 '+res.data.hora);
+				},
+				getSuma: function() {
+					this.suma = '😫 Cargando...';
+					axios
+						.get('api/suma/150-25')
+						.then(res => this.suma = `😁 ${res.data.x} + ${res.data.y} = ${res.data.z}`);
+				}
+			}
+		});
+	</script>
+</body>
+</html>
