@@ -13,7 +13,7 @@ Es una renovación de la idea de [**Mini-Api**](https://github.com/nicolasegp/mi
 
 ## • ModRewrite
 
-Si desea implementar el `mod_rewite` en su proyecto para que su URL cambien de `proyecto.com/index.php/seccion` a `proyecto.com/seccion` revisar la wiki de [**Servidores Apache**](https://github.com/nicolasegp/mini-app/wiki/Servidores-Apache) o [**Servidores Nginx**](https://github.com/nicolasegp/mini-app/wiki/Servidores-Nginx)
+Si desea implementar el `mod_rewrite` en su proyecto para que su URL cambien de `proyecto.com/index.php/seccion` a `proyecto.com/seccion` revisar la wiki de [**Servidores Apache**](https://github.com/nicolasegp/mini-app/wiki/Servidores-Apache) o [**Servidores Nginx**](https://github.com/nicolasegp/mini-app/wiki/Servidores-Nginx)
 
 Adicional a esta configuración se debe agregar el parámetro de mod_rewrite en la configuración de su proyecto de la siguiente manera:
 
